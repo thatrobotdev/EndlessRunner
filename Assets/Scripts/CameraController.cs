@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
@@ -11,12 +9,13 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Smoothly follow player y
+        // Get current transform position
+        Vector3 currentTransformPosition = transform.position;
 
         // Define a target position preserving the camera's position but aimed at the player's y
-        Vector3 targetPosition = new Vector3(transform.position.x, player.position.y, transform.position.z);
+        Vector3 targetPosition = new Vector3(currentTransformPosition.x, player.position.y, currentTransformPosition.z);
 
-        // Smoothy move the camera toward the player's y
-        transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref cameraVelocity, smoothTime);
+        // Smoothly move the camera toward the player's y
+        transform.position = Vector3.SmoothDamp(currentTransformPosition, targetPosition, ref cameraVelocity, smoothTime);
     }
 }

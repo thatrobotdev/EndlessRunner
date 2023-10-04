@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private float jumpForce = 0F;
+    [SerializeField] private float jumpForce = 10;
 
     // Update is called once per frame
     void Update()

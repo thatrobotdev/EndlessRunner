@@ -478,7 +478,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 1648973327}
-  jumpForce: 5
+  jumpForce: 10
 --- !u!50 &1648973327
 Rigidbody2D:
   serializedVersion: 4
@@ -647,8 +647,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd44318750d7c9c428935af8f9fcf8cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  platformPrefab: {fileID: 8922769396853381157, guid: 82ff5fbb5fb1f0d40b0d3292b361dbae, type: 3}
-  platformReferencePoint: {fileID: 859036928}
+  platformPrefab: {fileID: 0}
+  platformReferencePoint: {fileID: 0}
 --- !u!4 &1757057195
 Transform:
   m_ObjectHideFlags: 0
