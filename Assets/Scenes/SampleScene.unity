@@ -184,7 +184,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 1
+  orthographic: 0
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:
@@ -230,7 +230,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1648973329}
   cameraVelocity: {x: 0, y: 0, z: 0}
-  smoothTime: 0.5
+  smoothTime: 10
+  lookAtPlayer: 1
 --- !u!1 &859036926
 GameObject:
   m_ObjectHideFlags: 0
@@ -478,7 +479,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 1648973327}
-  jumpForce: 10
+  jumpForce: 8
 --- !u!50 &1648973327
 Rigidbody2D:
   serializedVersion: 4

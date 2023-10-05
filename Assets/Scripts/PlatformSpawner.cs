@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class PlatformSpawner : MonoBehaviour
 {
-    [SerializeField] GameObject platformPrefab;
-    [SerializeField] Transform platformReferencePoint;
+    [SerializeField] private GameObject platformPrefab;
+    [SerializeField] private Transform platformReferencePoint;
     private GameObject _lastCreatedPlatform;
 
     void CreateNewPlatform()
