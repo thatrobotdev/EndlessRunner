@@ -12,6 +12,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CameraController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/EnvironmentController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/HeadController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ide.rider@3.0.25/Rider/Editor/ProjectGeneration/ProjectGeneration.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.6/Scripts/Runtime/TMP_Text.cs" root0="SKIP_HIGHLIGHTING" />
@@ -109,6 +110,8 @@
       <workItem from="1696805628464" duration="5313000" />
       <workItem from="1696816967949" duration="34000" />
       <workItem from="1696817068713" duration="9000" />
+      <workItem from="1696817228839" duration="8559000" />
+      <workItem from="1696836863291" duration="1970000" />
     </task>
     <servers />
   </component>
