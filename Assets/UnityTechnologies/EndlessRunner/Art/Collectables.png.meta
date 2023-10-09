@@ -60,7 +60,7 @@ TextureImporter:
       213: 21300036
     second: Collectables_18
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -77,11 +77,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -120,6 +121,8 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 1
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -131,6 +134,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 1
   - serializedVersion: 3
@@ -143,13 +147,40 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 1
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Collectables_0
+      name: Coin_0
       rect:
         serializedVersion: 2
         x: 34
@@ -157,7 +188,7 @@ TextureImporter:
         width: 60
         height: 60
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -170,7 +201,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Collectables_1
+      name: Coin_1
       rect:
         serializedVersion: 2
         x: 172
@@ -178,7 +209,7 @@ TextureImporter:
         width: 45
         height: 62
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -191,7 +222,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Collectables_2
+      name: Coin_2
       rect:
         serializedVersion: 2
         x: 304
@@ -199,7 +230,7 @@ TextureImporter:
         width: 38
         height: 60
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -212,7 +243,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Collectables_3
+      name: Coin_3
       rect:
         serializedVersion: 2
         x: 432
@@ -220,7 +251,7 @@ TextureImporter:
         width: 32
         height: 62
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -233,7 +264,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Collectables_4
+      name: Coin_4
       rect:
         serializedVersion: 2
         x: 560
@@ -241,7 +272,7 @@ TextureImporter:
         width: 32
         height: 60
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -254,7 +285,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Collectables_5
+      name: Coin_5
       rect:
         serializedVersion: 2
         x: 682
@@ -262,7 +293,7 @@ TextureImporter:
         width: 36
         height: 60
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -275,7 +306,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Collectables_6
+      name: Coin_6
       rect:
         serializedVersion: 2
         x: 804
@@ -283,7 +314,7 @@ TextureImporter:
         width: 48
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -296,7 +327,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Collectables_7
+      name: 2x_0
       rect:
         serializedVersion: 2
         x: 22
@@ -304,7 +335,7 @@ TextureImporter:
         width: 85
         height: 111
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -317,7 +348,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Collectables_8
+      name: 2x_1
       rect:
         serializedVersion: 2
         x: 150
@@ -325,7 +356,7 @@ TextureImporter:
         width: 85
         height: 111
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -338,7 +369,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Collectables_9
+      name: 2x_2
       rect:
         serializedVersion: 2
         x: 278
@@ -346,7 +377,7 @@ TextureImporter:
         width: 85
         height: 111
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -359,7 +390,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Collectables_10
+      name: 2x_3
       rect:
         serializedVersion: 2
         x: 406
@@ -367,7 +398,7 @@ TextureImporter:
         width: 85
         height: 111
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -380,7 +411,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Collectables_11
+      name: Scarab_0
       rect:
         serializedVersion: 2
         x: 526
@@ -388,7 +419,7 @@ TextureImporter:
         width: 100
         height: 167
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -401,7 +432,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Collectables_12
+      name: Scarab_1
       rect:
         serializedVersion: 2
         x: 654
@@ -409,7 +440,7 @@ TextureImporter:
         width: 100
         height: 167
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -422,7 +453,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Collectables_13
+      name: Scarab_2
       rect:
         serializedVersion: 2
         x: 783
@@ -430,7 +461,7 @@ TextureImporter:
         width: 100
         height: 167
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -443,7 +474,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Collectables_14
+      name: Disc
       rect:
         serializedVersion: 2
         x: 0
@@ -451,7 +482,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -464,7 +495,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Collectables_15
+      name: Wall
       rect:
         serializedVersion: 2
         x: 320
@@ -472,7 +503,7 @@ TextureImporter:
         width: 129
         height: 65
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -485,7 +516,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Collectables_16
+      name: Wing_0
       rect:
         serializedVersion: 2
         x: 636
@@ -493,7 +524,7 @@ TextureImporter:
         width: 68
         height: 68
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -506,7 +537,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Collectables_17
+      name: Wing_1
       rect:
         serializedVersion: 2
         x: 708
@@ -514,7 +545,7 @@ TextureImporter:
         width: 66
         height: 72
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -527,7 +558,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Collectables_18
+      name: Wing_2
       rect:
         serializedVersion: 2
         x: 788
@@ -535,7 +566,7 @@ TextureImporter:
         width: 91
         height: 82
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -558,28 +589,27 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Collectables_9: 21300018
-      Collectables_4: 21300008
-      Collectables_3: 21300006
-      Collectables_8: 21300016
-      Collectables_2: 21300004
-      Collectables_17: 21300034
-      Collectables_0: 21300000
-      Collectables_10: 21300020
-      Collectables_16: 21300032
-      Collectables_13: 21300026
-      Collectables_11: 21300022
-      Collectables_6: 21300012
-      Collectables_1: 21300002
-      Collectables_14: 21300028
-      Collectables_18: 21300036
-      Collectables_12: 21300024
-      Collectables_5: 21300010
-      Collectables_7: 21300014
-      Collectables_15: 21300030
-  spritePackingTag: 
+      2x_0: 21300014
+      2x_1: 21300016
+      2x_2: 21300018
+      2x_3: 21300020
+      Coin_0: 21300000
+      Coin_1: 21300002
+      Coin_2: 21300004
+      Coin_3: 21300006
+      Coin_4: 21300008
+      Coin_5: 21300010
+      Coin_6: 21300012
+      Disc: 21300028
+      Scarab_0: 21300022
+      Scarab_1: 21300024
+      Scarab_2: 21300026
+      Wall: 21300030
+      Wing_0: 21300032
+      Wing_1: 21300034
+      Wing_2: 21300036
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

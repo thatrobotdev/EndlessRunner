@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     private float _lastYPos;
     public float distanceTravelled;
     [SerializeField] private UIController uiController;
+    public int coinsCollected;
     
     private static readonly int Falling = Animator.StringToHash("Falling");
     private static readonly int Jump = Animator.StringToHash("Jump");
@@ -47,17 +48,16 @@ public class Player : MonoBehaviour
         _lastYPos = currentYPos;
     }
 
-    void CheckForJump()
+    private void CheckForJump()
     {
-        if (_jump)
-        {
-            // Jump
-            rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
-            _jump = false;
-        }
+        if (!_jump) return;
+        
+        // Jump
+        rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+        _jump = false;
     }
 
-    void CheckForInput()
+    private void CheckForInput()
     {
         // On Space pressed, allow player to jump
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
@@ -68,13 +68,13 @@ public class Player : MonoBehaviour
         }
     }
 
-    void CheckForGrounded()
+    private void CheckForGrounded()
     {
         // Cast a ray down from player to check if grounded
         var hit = Physics2D.Raycast(raycastOrigin.position, Vector2.down);
         
-        // If player is above nothing
-        if (hit.collider != null)
+        // If player is above something that isn't an obstacle
+        if (hit.collider != null && !hit.collider.CompareTag("Obstacle"))
         {
             // Player is only grounded if ray hits ground close to player
             if (hit.distance < 0.1f)
@@ -83,6 +83,7 @@ public class Player : MonoBehaviour
                 isGrounded = true;
                 anim.SetBool(IsGrounded, true);
             }
+            Debug.Log(hit.collider.name);
             Debug.DrawRay(raycastOrigin.position, Vector2.down, Color.green);
         } 
         else
@@ -100,6 +101,14 @@ public class Player : MonoBehaviour
         {
             uiController.ShowGameOverScreen();
         }
-        
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Collectable"))
+        {
+            coinsCollected++;
+            Destroy(collision.gameObject);
+        }
     }
 }
