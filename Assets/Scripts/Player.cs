@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     private bool _jump;
     [SerializeField] private Animator anim;
     private float _lastYPos;
+    public float distanceTravelled;
     
     private static readonly int Falling = Animator.StringToHash("Falling");
     private static readonly int Jump = Animator.StringToHash("Jump");
@@ -22,6 +23,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        distanceTravelled += Time.deltaTime;
         CheckForInput();
         CheckIfPlayerIsFalling();
     }
