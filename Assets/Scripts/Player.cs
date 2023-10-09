@@ -3,15 +3,20 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private float jumpForce = 10;
-    [SerializeField] private Transform raycastOrigin;
-    [SerializeField] private bool isGrounded;
-    private bool _jump;
     [SerializeField] private Animator anim;
+    [SerializeField] private Transform raycastOrigin;
+    [SerializeField] private UIController uiController;
+    [SerializeField] private GameObject shield;
+    
+    [SerializeField] private float jumpForce = 10;
+    private bool _jump;
+    [SerializeField] private bool isGrounded;
     private float _lastYPos;
     public float distanceTravelled;
-    [SerializeField] private UIController uiController;
     public int coinsCollected;
+    [SerializeField] private bool airJump;
+
+    [SerializeField] private bool isShielded;
     
     private static readonly int Falling = Animator.StringToHash("Falling");
     private static readonly int Jump = Animator.StringToHash("Jump");
@@ -59,13 +64,21 @@ public class Player : MonoBehaviour
 
     private void CheckForInput()
     {
+        // If player is either on the ground or has the Air Jump power-up
+        if (!isGrounded && !airJump) return;
+        
         // On Space pressed, allow player to jump
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if (!Input.GetKeyDown(KeyCode.Space)) return;
+        
+        // Use power-up if in air
+        if (airJump && !isGrounded)
         {
-            // Player jump, adding instant force impulse to player rigidBody
-            _jump = true;
-            anim.SetTrigger(Jump);
+            airJump = false;
         }
+                
+        // Player jump, adding instant force impulse to player rigidBody
+        _jump = true;
+        anim.SetTrigger(Jump);
     }
 
     private void CheckForGrounded()
@@ -83,7 +96,11 @@ public class Player : MonoBehaviour
                 isGrounded = true;
                 anim.SetBool(IsGrounded, true);
             }
-            Debug.Log(hit.collider.name);
+            else
+            {
+                isGrounded = false;
+            }
+            //Debug.Log(hit.collider.name);
             Debug.DrawRay(raycastOrigin.position, Vector2.down, Color.green);
         } 
         else
@@ -99,6 +116,23 @@ public class Player : MonoBehaviour
         // If the player collides with an obstacle
         if (collision.transform.CompareTag("Obstacle"))
         {
+            if (isShielded)
+            {
+                // Use shield
+                isShielded = false;
+                shield.SetActive(false);
+            }
+            else
+            {
+                // Death
+                uiController.ShowGameOverScreen();
+            }
+            
+        }
+        
+        // Always show game over, regardless of shielding when hitting DeathBox
+        if (collision.transform.CompareTag("DeathBox"))
+        {
             uiController.ShowGameOverScreen();
         }
     }
@@ -110,5 +144,16 @@ public class Player : MonoBehaviour
             coinsCollected++;
             Destroy(collision.gameObject);
         }
+
+        if (collision.CompareTag("AirJump"))
+        {
+            airJump = true;
+            Destroy(collision.gameObject);
+        }
+
+        if (!collision.CompareTag("ShieldPowerup")) return;
+        isShielded = true;
+        shield.SetActive(true);
+        Destroy(collision.gameObject);
     }
 }
