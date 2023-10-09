@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Animator anim;
     private float _lastYPos;
     public float distanceTravelled;
+    [SerializeField] private UIController uiController;
     
     private static readonly int Falling = Animator.StringToHash("Falling");
     private static readonly int Jump = Animator.StringToHash("Jump");
@@ -90,5 +91,15 @@ public class Player : MonoBehaviour
             isGrounded = false;
             anim.SetBool(IsGrounded, false);
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        // If the player collides with an obstacle
+        if (collision.transform.CompareTag("Obstacle"))
+        {
+            uiController.ShowGameOverScreen();
+        }
+        
     }
 }

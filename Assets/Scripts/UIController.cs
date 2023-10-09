@@ -7,15 +7,7 @@ public class UIController : MonoBehaviour
     [SerializeField] private GameObject gameOverScreen;
     [SerializeField] private Player player;
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            ShowGameOverScreen();
-        }
-    }
-
-    private void ShowGameOverScreen()
+    public void ShowGameOverScreen()
     {
         gameOverScreen.SetActive(true);
         var roundedDistance = Mathf.Ceil(player.distanceTravelled);
