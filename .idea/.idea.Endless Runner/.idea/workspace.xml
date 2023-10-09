@@ -12,6 +12,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CameraController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/HeadController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ide.rider@3.0.25/Rider/Editor/ProjectGeneration/ProjectGeneration.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -101,7 +102,9 @@
       <updated>1696393953014</updated>
       <workItem from="1696393954978" duration="75000" />
       <workItem from="1696394104025" duration="1118000" />
-      <workItem from="1696535494431" duration="1315000" />
+      <workItem from="1696535494431" duration="1975000" />
+      <workItem from="1696727153533" duration="15801000" />
+      <workItem from="1696796374598" duration="2711000" />
     </task>
     <servers />
   </component>
