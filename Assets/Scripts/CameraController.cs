@@ -5,7 +5,7 @@ public class CameraController : MonoBehaviour
     [SerializeField] private Transform player;
     [SerializeField] private Vector3 cameraVelocity;
     [SerializeField] private float smoothTime = 0.1F;
-    [SerializeField] private bool lookAtPlayer = true;
+    [SerializeField] private bool lookAtPlayer = false;
     [SerializeField] private int upperLimit = 30;
     [SerializeField] private int lowerLimit = -2;
     [SerializeField] private float offset = 2;
