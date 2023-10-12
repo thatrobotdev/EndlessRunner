@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Transform raycastOrigin;
     [SerializeField] private UIController uiController;
     [SerializeField] private GameObject shield;
+    [SerializeField] private SFXManager sfxManager;
     
     [SerializeField] private float jumpForce = 10;
     private bool _jump;
@@ -142,6 +143,7 @@ public class Player : MonoBehaviour
         if (collision.CompareTag("Collectable"))
         {
             coinsCollected++;
+            sfxManager.PlaySFX("Coin");
             Destroy(collision.gameObject);
         }
 
