@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     [SerializeField] private UIController uiController;
     [SerializeField] private GameObject shield;
     [SerializeField] private SFXManager sfxManager;
-    
+
     [SerializeField] private float jumpForce = 10;
     private bool _jump;
     [SerializeField] private bool isGrounded;
@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
     [SerializeField] private bool airJump;
 
     [SerializeField] private bool isShielded;
-    
+
     private static readonly int Falling = Animator.StringToHash("Falling");
     private static readonly int Jump = Animator.StringToHash("Jump");
     private static readonly int IsGrounded = Animator.StringToHash("IsGrounded");
@@ -46,10 +46,10 @@ public class Player : MonoBehaviour
     {
         // Get current position
         var currentYPos = transform.position.y;
-        
+
         // Animate falling if falling
         anim.SetBool(Falling, currentYPos < _lastYPos);
-        
+
         // Update last y position
         _lastYPos = currentYPos;
     }
@@ -57,9 +57,10 @@ public class Player : MonoBehaviour
     private void CheckForJump()
     {
         if (!_jump) return;
-        
+
         // Jump
         rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+        sfxManager.PlaySFX("Jump");
         _jump = false;
     }
 
@@ -67,18 +68,23 @@ public class Player : MonoBehaviour
     {
         // If player is either on the ground or has the Air Jump power-up
         if (!isGrounded && !airJump) return;
-        
+
         // On Space pressed, allow player to jump
         if (!Input.GetKeyDown(KeyCode.Space)) return;
-        
+
         // Use power-up if in air
         if (airJump && !isGrounded)
         {
             airJump = false;
+            sfxManager.PlaySFX("DoubleJump");
+        } else
+        {
+            sfxManager.PlaySFX("Jump");
         }
-                
+
         // Player jump, adding instant force impulse to player rigidBody
         _jump = true;
+        
         anim.SetTrigger(Jump);
     }
 
@@ -86,7 +92,7 @@ public class Player : MonoBehaviour
     {
         // Cast a ray down from player to check if grounded
         var hit = Physics2D.Raycast(raycastOrigin.position, Vector2.down);
-        
+
         // If player is above something that isn't an obstacle
         if (hit.collider != null && !hit.collider.CompareTag("Obstacle"))
         {
@@ -101,9 +107,7 @@ public class Player : MonoBehaviour
             {
                 isGrounded = false;
             }
-            //Debug.Log(hit.collider.name);
-            Debug.DrawRay(raycastOrigin.position, Vector2.down, Color.green);
-        } 
+        }
         else
         {
             // Ground is far from player, player is not grounded
@@ -122,19 +126,22 @@ public class Player : MonoBehaviour
                 // Use shield
                 isShielded = false;
                 shield.SetActive(false);
+                sfxManager.PlaySFX("ShieldBreak");
             }
             else
             {
-                // Death
-                uiController.ShowGameOverScreen();
+                killPlayer();
             }
-            
         }
-        
+        else
+        {
+            sfxManager.PlaySFX("Land");
+        }
+
         // Always show game over, regardless of shielding when hitting DeathBox
         if (collision.transform.CompareTag("DeathBox"))
         {
-            uiController.ShowGameOverScreen();
+            killPlayer();
         }
     }
 
@@ -146,16 +153,25 @@ public class Player : MonoBehaviour
             sfxManager.PlaySFX("Coin");
             Destroy(collision.gameObject);
         }
-
-        if (collision.CompareTag("AirJump"))
+        else if (collision.CompareTag("AirJump"))
         {
             airJump = true;
+            sfxManager.PlaySFX("PowerupDoubleJump");
+            Destroy(collision.gameObject);
+        }
+        else if (collision.CompareTag("ShieldPowerup"))
+        {
+            isShielded = true;
+            shield.SetActive(true);
+            sfxManager.PlaySFX("PowerupShield");
             Destroy(collision.gameObject);
         }
 
-        if (!collision.CompareTag("ShieldPowerup")) return;
-        isShielded = true;
-        shield.SetActive(true);
-        Destroy(collision.gameObject);
+    }
+
+    private void killPlayer()
+    {
+        sfxManager.PlaySFX("GameOverHit");
+        uiController.ShowGameOverScreen();
     }
 }

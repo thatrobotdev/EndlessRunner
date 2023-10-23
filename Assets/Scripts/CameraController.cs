@@ -21,12 +21,12 @@ public class CameraController : MonoBehaviour
 
         // Smoothly move the camera toward the player's y if the player is within camera limit
         if (!(currentPlayerPositionY > lowerLimit) || !(currentPlayerPositionY < upperLimit)) return;
-        
+
         // Define a target position preserving the camera's position but aimed at the player's y
         var targetPosition = new Vector3(currentTransformPosition.x, currentPlayerPositionY + offset, currentTransformPosition.z);
 
         transform.position = Vector3.SmoothDamp(currentTransformPosition, targetPosition, ref cameraVelocity, smoothTime);
-        
+
         // Look at player to create 3D appearance
         if (lookAtPlayer)
         {
