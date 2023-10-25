@@ -14,41 +14,35 @@ public class SFXManager : MonoBehaviour
 
     public void PlaySFX(string clipToPlay)
     {
-        if (clipToPlay == "Coin")
+        switch (clipToPlay)
         {
-            audioSource.clip = coin;
-        }
-        else if (clipToPlay == "DoubleJump")
-        {
-            audioSource.clip = doubleJump;
-        }
-        else if (clipToPlay == "GameOverHit")
-        {
-            audioSource.clip = gameOverHit;
-        }
-        else if (clipToPlay == "Jump")
-        {
-            audioSource.clip = jump;
-        }
-        else if (clipToPlay == "Land")
-        {
-            audioSource.clip = land;
-        }
-        else if (clipToPlay == "PowerupDoubleJump")
-        {
-            audioSource.clip = powerupDoubleJump;
-        }
-        else if (clipToPlay == "PowerupShield")
-        {
-            audioSource.clip = powerupShield;
-        }
-        else if (clipToPlay == "ShieldBreak")
-        {
-            audioSource.clip = shieldBreak;
-        }
-        else
-        {
-            Debug.LogError($"Invalid clip name {clipToPlay}");
+            case "Coin":
+                audioSource.clip = coin;
+                break;
+            case "DoubleJump":
+                audioSource.clip = doubleJump;
+                break;
+            case "GameOverHit":
+                audioSource.clip = gameOverHit;
+                break;
+            case "Jump":
+                audioSource.clip = jump;
+                break;
+            case "Land":
+                audioSource.clip = land;
+                break;
+            case "PowerupDoubleJump":
+                audioSource.clip = powerupDoubleJump;
+                break;
+            case "PowerupShield":
+                audioSource.clip = powerupShield;
+                break;
+            case "ShieldBreak":
+                audioSource.clip = shieldBreak;
+                break;
+            default:
+                Debug.LogError($"Invalid clip name {clipToPlay}");
+                break;
         }
 
         audioSource.Play();

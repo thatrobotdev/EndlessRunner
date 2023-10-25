@@ -2,22 +2,22 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public float distanceTravelled;
+    public int coinsCollected;
+
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Animator anim;
     [SerializeField] private Transform raycastOrigin;
     [SerializeField] private UIController uiController;
     [SerializeField] private GameObject shield;
     [SerializeField] private SFXManager sfxManager;
-
     [SerializeField] private float jumpForce = 10;
-    private bool _jump;
     [SerializeField] private bool isGrounded;
-    private float _lastYPos;
-    public float distanceTravelled;
-    public int coinsCollected;
     [SerializeField] private bool airJump;
-
     [SerializeField] private bool isShielded;
+
+    private bool _jump;
+    private float _lastYPos;
 
     private static readonly int Falling = Animator.StringToHash("Falling");
     private static readonly int Jump = Animator.StringToHash("Jump");

@@ -13,8 +13,8 @@ public class PlatformSpawner : MonoBehaviour
 
         // Only create a new platform when previous one's position is before the platform spawner
         if (!(lastCreatedPlatform.transform.position.x < transform.position.x)) return;
-
-        var targetPlatformX = transform.position.x + _lastPlatformWidth + spaceBetweenPlatforms;
+        float randomSpaceInBetweenPlatforms = Random.Range(2, 5);
+        var targetPlatformX = transform.position.x + _lastPlatformWidth + randomSpaceInBetweenPlatforms;
         var targetCreationPoint = new Vector3(targetPlatformX, 0, 0);
 
         // Create target for new platform
